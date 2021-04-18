@@ -90,14 +90,14 @@ def NguyCoBenh(bmi):
     else:
         return "Nguy hiểm"
 
-print("Nhập vào chiều cao: ")
-height = float(input())
-print("Nhập vào cân nặng: ")
-weight=float(input())
-bmi=BMI(height,weight)
-print("BMI của bạn",bmi)
-print("Phân loại của bạn=",PhanLoai(bmi))
-print("Nguy cơ bệnh của Thím=",NguyCoBenh(bmi))
+# print("Nhập vào chiều cao: ")
+# height = float(input())
+# print("Nhập vào cân nặng: ")
+# weight=float(input())
+# bmi=BMI(height,weight)
+# print("BMI của bạn",bmi)
+# print("Phân loại của bạn=",PhanLoai(bmi))
+# print("Nguy cơ bệnh của Thím=",NguyCoBenh(bmi))
 
 """
     Câu 4: Viết hàm tính ROI
@@ -111,12 +111,12 @@ def GoiYDauTu(roi):
     else:
         return "Không nên đầu tư"
 
-print("Chương trình tính ROI")
-dt = int(input("Nhập doanh thu: "))
-cp = int(input("Nhập chi phí: "))
-roi = ROI(dt,cp)
-print("Tỉ lệ ROI=",roi)
-print("==>",GoiYDauTu(roi))
+# print("Chương trình tính ROI")
+# dt = int(input("Nhập doanh thu: "))
+# cp = int(input("Nhập chi phí: "))
+# roi = ROI(dt,cp)
+# print("Tỉ lệ ROI=",roi)
+# print("==>",GoiYDauTu(roi))
 
 """
     Câu 5: Viết hàm đệ qui Fibonacci
@@ -131,6 +131,35 @@ def listfibo(n):
     for i in range(1,n+1):
         print(fibonacci(i),end='\t')
 
-print(fibonacci(9))
-listfibo(9)
+# print(fibonacci(9))
+# listfibo(9)
+
+"""
+    Câu 6: Những giá trị nào có thể xuất hiện trong randrange(0,100)
+"""
+
+def randrange():
+    for i in range(0,100):
+        print(i)
+
+# randrange() # 0, 34, 99 xuất hiện và -1, 4.5, 100 không xuất hiện
+
+"""
+    Câu 7: Tính và xuất độ dài đoạn AB
+"""
+
+# xA = int(input("Mời nhập tọa độ xA"))
+# yA = int(input("Mời nhập tọa độ yA"))
+
+# xB = int(input("Mời nhập tọa độ xB"))
+# yB = int(input("Mời nhập tọa độ yB"))
+
+def doDaiAB(xB,xA,yB,yA):
+    a = sqrt((xB-xA)**2 + (yB-yA)**2)
+    print(a)
+
+# doDaiAB(5,3,3,5)
+
+
+
 
