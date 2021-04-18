@@ -39,6 +39,8 @@ function evensOnly(arr) {
 
 /**
  * Give a list of students, filter out non-female 
+ * Trả về các giá trị là True thì lấy
+ * Đầu ra là mảng
  */
 
 var members = [
