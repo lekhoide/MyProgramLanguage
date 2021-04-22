@@ -160,6 +160,26 @@ def doDaiAB(xB,xA,yB,yA):
 
 # doDaiAB(5,3,3,5)
 
+"""
+    Câu 8: Viết chương trình tính logax
+    a,x là các số thực nhập vào từ bàn phím, x>0 và a>0 a!=1(logax=lnx/lna)
+"""
+import math
+
+def tinhLog():
+    a_8 = float(input("Mời bạn nhập a: "))
+    x_8 = float(input("Mời bạn nhập x: "))
+
+    if a_8 > 0 and x_8 > 0 and a_8 != 1:
+        logax = math.log(x_8) / math.log(a_8)
+        print(logax)
+    else:
+        print("Nhập không đúng mời nhập lại")
+
+tinhLog()
+
+
+
 
 
 
