@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"> -->
+    <style>
+        body {
+            padding: 106px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            var products = [
+                { name: 'A', quantity: 2, unitPrice: 100, category: 'Phone' },
+                { name: 'B', quantity: 1, unitPrice: 400 , category: 'Laptop'},
+                { name: 'C', quantity: 5, unitPrice: 15 , category: 'Kitchen'},
+            ];
+
+            // 1. Filter cac san pham nam trong 1 category nao do
+            // 2. Tinh tong so tien hang con trong kho
+            // 3. Chon ra cac san pham co tien hang ton lon(tong tren 500)
+
+            var users = [
+                { name: 'Tom', gender: 'male' },
+                { name: 'Maria', gender: 'female' },
+                { name: 'Jason', gender: 'male' },
+                { name: 'Sara', gender: 'female' },
+                { name: 'Cindy', gender: 'male' }
+            ];
+
+            // Tham chiếu
+            var userList = $('#userList');
+            var genderFilter = $('#genderFilter');
+
+            render(userList, users);
+
+            genderFilter.on('change', function () {
+                var selectedGender = this.value;
+                var filteredUsers = users.filter(function(user){
+                    return user.gender === selectedGender;
+                });
+                render(userList, filteredUsers);
+            });
+
+            // container ul - items li
+            function render(container, items) {
+                var htmlItems = items.map(function (item) {
+                    return '<li class="list-group-item">' + item.name + '</li>';
+                });
+                var html = htmlItems.join('');
+                container.html(html);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col form-group">
+            <label for="genderFilter">Gender</label>
+            <select id="genderFilter" class="form-control">
+                <option value="null">All</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+    </div>
+    <ul class="list-group" id="userList">
+        <!-- <li class="list-group-item">Maria</li>
+        <li class="list-group-item">Jason</li>
+        <li class="list-group-item">Sora</li>
+        <li class="list-group-item">Cindy</li> -->
+    </ul>
+</body>
+
+</html>
