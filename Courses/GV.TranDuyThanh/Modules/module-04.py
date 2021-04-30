@@ -6,19 +6,19 @@
 
 from math import sqrt
 
-while(True):
-    a_1 = float(input("Mời nhập số a: "))
-    b_1 = float(input("Mời nhập số b: "))
-    c_1 = float(input("Mời nhập số c: "))
+# while(True):
+#     a_1 = float(input("Mời nhập số a: "))
+#     b_1 = float(input("Mời nhập số b: "))
+#     c_1 = float(input("Mời nhập số c: "))
 
-    if(a_1<=0 or b_1<=0 or c_1<=0) or (a_1+b_1)<=c_1 or (a_1+c_1)<=b_1 or (b_1+c_1)<=a_1:
-        print("Tam giác không hợp lệ. Mời nhập lại")
-    else:
-        cv_1 = a_1 + b_1 + c_1
-        p_1 = cv_1/2
-        dt_1 = sqrt(p_1*(p_1-a_1)*(p_1-b_1)*(p_1-c_1))
-        print("Diện tích =",dt_1)
-        break
+#     if(a_1<=0 or b_1<=0 or c_1<=0) or (a_1+b_1)<=c_1 or (a_1+c_1)<=b_1 or (b_1+c_1)<=a_1:
+#         print("Tam giác không hợp lệ. Mời nhập lại")
+#     else:
+#         cv_1 = a_1 + b_1 + c_1
+#         p_1 = cv_1/2
+#         dt_1 = sqrt(p_1*(p_1-a_1)*(p_1-b_1)*(p_1-c_1))
+#         print("Diện tích =",dt_1)
+#         break
 
 """
     Câu 2: Viết hàm để chơi game Đoán số
@@ -31,27 +31,27 @@ while(True):
 
 from random import randrange
 
-while True:
-    somay=randrange(1,11)
-    solandoan=0
-    win=False
-    while solandoan < 7:
-        solandoan+=1
-        songuoi=int(input("Máy đoán [1..10], mời bạn đoán: "))
-        print("Bạn đoán lần thứ",solandoan)
-        if somay==songuoi:
-            print("Chúc mừng bạn đoán đúng, số máy là = ",somay)
-            win=True
-            break
-        if somay>songuoi:
-            print("Bạn đoán sai, số máy > số bạn")
-        elif somay<songuoi:
-            print("Bạn đoán sai, số máy < số bạn")
-    if win ==False:
-        print("Game Over!, số máy =",somay)
-    hoi=input("Tiếp không")
-    if hoi is 'k':
-        break
+# while True:
+#     somay=randrange(1,11)
+#     solandoan=0
+#     win=False
+#     while solandoan < 7:
+#         solandoan+=1
+#         songuoi=int(input("Máy đoán [1..10], mời bạn đoán: "))
+#         print("Bạn đoán lần thứ",solandoan)
+#         if somay==songuoi:
+#             print("Chúc mừng bạn đoán đúng, số máy là = ",somay)
+#             win=True
+#             break
+#         if somay>songuoi:
+#             print("Bạn đoán sai, số máy > số bạn")
+#         elif somay<songuoi:
+#             print("Bạn đoán sai, số máy < số bạn")
+#     if win ==False:
+#         print("Game Over!, số máy =",somay)
+#     hoi=input("Tiếp không")
+#     if hoi is 'k':
+#         break
 
 """
     Câu 3: Viết hàm tính BMI
@@ -176,10 +176,34 @@ def tinhLog():
     else:
         print("Nhập không đúng mời nhập lại")
 
-tinhLog()
+# tinhLog()
 
+"""
+    Câu 9: Viết chương trình tính căn bặc 2 lồng nhau
+    Nhập n. Tính S(n) có n dấu căn lồng nhau
+"""
 
+def tinhCan():
+    n_9 = int(input("Mời nhập n: "))
+    """
+        S_9 = sqrt(2)
+        n = 1 => S_9 = sqrt(2)
+        n = 2 => Đi vào vòng lặp for
+        Bắt đầu từ 1 đến n_9
+        n = 1 => sqrt(2)
+        n = 2 => sqrt(2 + sqrt(2))
+        n = 3 => sqrt(2 + sqrt(2 + sqrt(2)))
+        ...
+        S_9 = 2 ** 0.5
+        => S_9 = (2 + S_9) ** 0.5
+    """
+    S_9 = 0
+    if n_9 is 0:
+        print(S_9)
+    else:
+        S_9 = 2 ** 0.5
+        for i in range(1,n_9):
+            S_9 = (2 + S_9) ** 0.5
+        print("S(n) = %.9f" %S_9)
 
-
-
-
+tinhCan()
