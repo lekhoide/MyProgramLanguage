@@ -54,10 +54,31 @@
                 { name: 'C', quantity: 5, unitPrice: 15 , category: 'Kitchen'}
             ];
 
-            // 1. Filter cac san pham nam trong 1 category nao do
             // 2. Tinh tong so tien hang con trong kho
+            function sumProducts(products){
+                var sumProduct = products.map(function(x){
+                    var lineProduct = x.quantity * x.unitPrice;
+                    return lineProduct;
+                });
+                var allProduct = sumProduct.reduce(function(a,b){
+                    return a + b;
+                });
+                return allProduct
+            }
+            console.log(sumProducts(products))
+
             // 3. Chon ra cac san pham co tien hang ton lon(tong tren 500)
-            
+            function maxProducts(products){
+                var sumProduct = products.map(function(x){
+                    var lineProduct = x.quantity * x.unitPrice
+                    return lineProduct
+                });
+                var maxProduct = Math.max.apply(Math, sumProduct)
+                return maxProduct
+            }
+            console.log(maxProducts(products))
+
+            // 1. Filter cac san pham nam trong 1 category nao do
             render(userList,products);
             genderFilter.on('change',function(){
                 var selectedCategory = this.value;
