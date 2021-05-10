@@ -206,4 +206,172 @@ def tinhCan():
             S_9 = (2 + S_9) ** 0.5
         print("S(n) = %.9f" %S_9)
 
-tinhCan()
+# tinhCan()
+
+"""
+    Câu 10: Kiểm tra kết quả thực hiện
+"""
+def sum1(n):
+    s = 0
+    while n > 0:
+        s += 1
+        n -= 1
+    return s
+def sum2():
+    global val
+    s = 0
+    while val > 0:
+        s += 1
+        val -= 1
+    return s
+def sum3():
+    s = 0
+    for i in range(val, 0, -1):
+        s += 1
+    return s
+# Trường hợp 1
+"""
+    n = 5
+    sum1
+    5 > 0  s = 1 and n = 4
+    4 > 0  s = 2 and n = 3
+    3 > 0  s = 3 and n = 2
+    2 > 0  s = 4 and n = 1
+    1 > 0  s = 5 and n = 0
+    sum1 => s = 5
+
+    val = 5
+    sum2
+    5 > 0 s = 1 and val = 4
+    4 > 0 s = 2 and val = 3
+    3 > 0 s = 3 and val = 2
+    2 > 0 s = 4 and val = 1
+    1 > 0 s = 5 and val = 0
+    sum2 => s = 5
+
+    sum3 => s = 0
+    Lý do: val = 0 nên vòng for không chạy được nên return s = 0
+"""
+# def main():
+#     global val
+#     val = 5
+#     print(sum1(5))
+#     print(sum2())
+#     print(sum3())
+# main()
+
+# Trường hợp 2
+"""
+    n = 5
+    sum1
+    5 > 0  s = 1 and n = 4
+    4 > 0  s = 2 and n = 3
+    3 > 0  s = 3 and n = 2
+    2 > 0  s = 4 and n = 1
+    1 > 0  s = 5 and n = 0
+    sum1 => s = 5
+
+    val = 5 and s = 0
+    sum3
+    i = 5 s = 1
+    i = 4 s = 2
+    i = 3 s = 3
+    i = 2 s = 4
+    i = 1 s = 5
+    sum3 => s = 5
+    
+    val = 5
+    sum2
+    5 > 0 s = 1 and val = 4
+    4 > 0 s = 2 and val = 3
+    3 > 0 s = 3 and val = 2
+    2 > 0 s = 4 and val = 1
+    1 > 0 s = 5 and val = 0
+    sum2 => s = 5
+"""
+# def main():
+#     global val
+#     val = 5
+#     print(sum1(5))
+#     print(sum3())
+#     print(sum2())
+# main()
+
+# Trường hợp 3
+"""
+    val = 5 and s = 0
+    sum2
+    5 > 0 s = 1 val = 4
+    4 > 0 s = 2 val = 3
+    3 > 0 s = 3 val = 2
+    2 > 0 s = 4 val = 1
+    1 > 0 s = 5 val = 0
+    sum2 => s = 5
+
+    n = 5
+    sum1
+    5 > 0  s = 1 and n = 4
+    4 > 0  s = 2 and n = 3
+    3 > 0  s = 3 and n = 2
+    2 > 0  s = 4 and n = 1
+    1 > 0  s = 5 and n = 0
+    sum1 => s = 5
+
+    sum3 => s = 0
+    Lý do: val = 0 nên vòng for không chạy được nên return s = 0
+
+"""
+# def main():
+#     global val
+#     val = 5
+#     print(sum2())
+#     print(sum1(5))
+#     print(sum3())
+# main()
+
+
+"""
+    Câu 11: Hàm oscillate
+"""
+# def oscillate(n,m):
+#     list = []
+#     for i in range(n,m):
+#         list.append(i)
+#         list.append(-i)
+#     return list
+# for n in oscillate(-3,5):
+#     print(n, end=' ')
+# print()
+
+"""
+    Câu 12: Hàm kiểm tra số hoàn thiện, số thịnh vượng
+"""
+
+def pefectNumber(n):
+    list = []
+    for i in range(1,n):
+        if n % i == 0:
+            list.append(i)
+    sum = 0
+    for j in list:
+        sum += j
+    if sum == n:
+        print(n,"là số hoàn thiện")
+    else:
+        print(n,"không là số hoàn thiện")
+pefectNumber(7)
+
+def abundantNumber(n):
+    list = []
+    for i in range(1,n):
+        if n % i == 0:
+            list.append(i)
+    sum = 0
+    for j in list:
+        sum += j
+    if sum > n:
+        print(n,"là số thịnh vượng")
+    else:
+        print(n,"không là số thịnh vượng")
+
+abundantNumber(12)
