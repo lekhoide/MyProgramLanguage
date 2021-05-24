@@ -204,8 +204,21 @@ def checkChuoi(str):
     print("Có",nguyenAm,"nguyên âm")
     print("Có",phuAm,"phụ âm")   
 
-str_5 = "Lê Khôi Đệ 05 &"
-checkChuoi(str_5)
+# str_5 = "Lê Khôi Đệ 05 &"
+# checkChuoi(str_5)
+
+"""
+    Câu 6: Trích lọc số âm trong chuỗi
+
+"""
+def NegativeNumberInString(str):
+    for i in str:
+        if i.isdigit():
+            print(i)
+
+str_6 = "abc-5xyz-12k91--p"
+NegativeNumberInString(str_6)
+
 
 
 
