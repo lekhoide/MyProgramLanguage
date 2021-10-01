@@ -1,0 +1,35 @@
+<!-- JS DOM / Document Object Model -->
+<!-- Run JS on browser -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    function Cat() {
+        this.stomach = []
+    }
+
+    Cat.prototype.eat = function(mouse) {
+        this.stomach.push(mouse);
+        return this;
+    };
+
+    function Mouse(name) {
+        this.name = name;
+    }
+
+    var tom = new Cat();
+    var mickey = new Mouse();
+    tom.eat(mickey);
+
+    console.log(tom);
+</script>
+</html>
