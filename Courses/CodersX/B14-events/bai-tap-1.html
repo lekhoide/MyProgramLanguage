@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai-tap-1</title>
+</head>
+
+<body>
+    <form id="loginForm">
+        <div>
+            <label>Username</label>
+            <input type="text" name="username" />
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" name="password" />
+        </div>
+
+        <div>
+            <button type="submit">Submit</button>
+            <button id="clearButton" type="button">Clear</button>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        // Viết code sao cho khi nhấn nút clear, nội dung của toàn bộ các field trong form có id là `loginForm` sẽ bị xoá (reset)
+        // Gợi ý: form element có method reset() dùng để xoá toàn bộ nội dung
+        // Tham khảo: https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement
+
+        var idForm = document.getElementById('loginForm');
+        var clearBtn = document.getElementById('clearButton');
+        clearBtn.addEventListener('click', clearInput);
+
+        function clearInput() {
+            // div > input
+            // check tagname == input
+            // reset input
+            // for (var i = 0; i < idForm.childElementCount; i++) {
+            //     var inputForm = idForm.children[i].getElementsByTagName('input');
+            //     if (inputForm[0].tagName == 'INPUT') {
+            //         inputForm[0].value = '';
+            //     }
+            // }
+
+
+            idForm.reset();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+# dotfiles
+.*
+!.gitignore
+!.github
+!.mailmap
+
+# JetBrains IDE
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Javascript
+**/node_modules/

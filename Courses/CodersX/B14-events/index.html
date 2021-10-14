@@ -1,0 +1,63 @@
+<!-- $0.addEventListener (Observer desgin pattern) -->
+<!-- Design patterns, Observer design pattern -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO list</title>
+</head>
+
+<body>
+    <input id='new-item' type="text">
+    <button id='add-btn'>Add</button>
+    <ul id='todo-list'>
+    </ul>
+
+    <script type="text/javascript">
+        var todoList = [
+            'Take shower',
+            'Have a walk',
+            'Go to bed'
+        ];
+
+        var addBtn = document.getElementById('add-btn');
+        // addBtn.onclick = addItem;
+        addBtn.addEventListener('click', addItem);
+        
+        addBtn.addEventListener('click', function () {
+            console.log('Add button is clicked');
+        }); // anonynmous function
+
+        function addItem() {
+            var input = document.getElementById('new-item');
+            todoList.push(input.value);
+            render();
+            input.value = '';
+        }
+
+        function render() {
+            var htmlList = document.getElementById('todo-list');
+            var content = todoList.map(function (x) {
+                return '<li>' + x + "<button id='delete-btn'>" + 'Delete' + '</button>' + '</li>';
+            });
+            htmlList.innerHTML = content.join('');
+        }
+
+        function deleteItem() {
+            var buttonList = document.querySelectorAll('button#delete-btn');
+            for (var i = 0 ; i < buttonList.length ; i++) {
+                buttonList[i].addEventListener('click', function () {
+                    this.parentNode.remove();
+                })
+            }
+        }
+
+        render();
+        deleteItem();
+    </script>
+</body>
+
+</html>

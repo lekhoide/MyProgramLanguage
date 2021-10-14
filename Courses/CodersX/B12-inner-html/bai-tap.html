@@ -1,0 +1,59 @@
+<!-- 
+- Sử dụng getElementsByTagName() để lấy ra danh sách các <p> có class là 'foo'
+- Lặp qua các phần tử và thay đổi nội dung của từng phần tử bằng cách append (thêm vào cuối) một đường link tới coders.tokyo site
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p class='foo'>
+        <strong>p.class=foo: </strong>Tạo nhiều tag với cùng tên class được đánh số tự động như thế nào? Bạn chỉ cần
+        thêm $và tên đối tượng và Emmet sẽ tự động đánh số tăng dần tương ứng với từng tên được tạo ra. Ví dụ, nếu viết
+        ul>li.item$*3 ta sẽ được:
+    </p>
+
+    <p class='foo'>
+        <strong>p.class=foo: </strong>Bạn có thể xác định số lần một phần tử được đưa ra bằng cách sử dụng toán tử *. Ví
+        dụ,ul>li*4 ta sẽ được:
+    </p>
+
+    <p class='foo'>
+        <strong>p.class=foo: </strong>Bạn có thể nhóm các đoạn mã lại với nhau sử dụng dấu ngoặc đơn (). Ví dụ khi
+        gõ,(.hcode>h1)+(.hung>h2) ta sẽ được:
+    </p>
+
+    <p class='fooo'>
+        <strong>p.class=fooo: </strong>Nếu bạn đã làm quen với CSS thì việc sử dụng Emmet rất đơn giản, bởi vì cú pháp
+        của Emmet rất giống CSS trong việc mô tả các thành phần.
+    </p>
+
+    <span class='foo'>
+        <strong>span.class=foo: </strong>Nếu bạn đã làm quen với CSS thì việc sử dụng Emmet rất đơn giản, bởi vì cú pháp
+        của Emmet rất giống CSS trong việc mô tả các thành phần.
+    </span>
+
+</body>
+
+<script type="text/javascript">
+    var getTag = document.getElementsByTagName('p');
+    var appendString = "<a href='#'>coders.tokyo site.</a>"
+
+    function insertString() {
+        for(var i = 0 ; i < getTag.length ; i++) {
+            if (getTag[i].className == 'foo') {
+                getTag[i].innerHTML += appendString;
+            }
+        }
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- internal script: viết ở trong html -->
+<!-- external script: viết ở ngoài html -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO list</title>
+</head>
+
+<body>
+    <input id='new-item' type="text"> <button onclick="addItem()">Add</button>
+
+    <ul id='todo-list'>
+    </ul>
+
+    <script type="text/javascript">
+    
+        var todoList = [
+            'Take shower',
+            'Have a walk',
+            'Go to bed'
+        ];
+
+        function addItem() {
+            var input = document.getElementById('new-item');
+            todoList.push(input.value);
+            render();
+            input.value = '';
+        }
+
+        function render() {
+            var htmlList = document.getElementById('todo-list');
+            var content = todoList.map(function (x) {
+                return '<li>' + x + "<button onclick='deleteItem(this)'>" + 'Delete' + '</button>' + '</li>';
+            });
+            htmlList.innerHTML = content.join('');
+        }
+        
+        function deleteItem(thisBtn) {
+            thisBtn.parentNode.parentNode.removeChild(thisBtn.parentNode);
+        }
+
+        render();
+    </script>
+</body>
+
+</html>

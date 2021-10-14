@@ -1,0 +1,60 @@
+<!-- 
+    HTML Element
+    .children           (Element): trả về tập hơn các phần từ con bên trong
+    .textContent        (Node): trả về giá trị hay gán giá trị kiểu String.
+
+    .appendChild()      (Node): thêm phần tử vào cuối.
+    .remove()           (Element)
+
+    instanceof: kiểm tra có phải là con của cha. Trả về True và False
+    $0: lấy element hiện tại đang select
+    
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Document</title>
+</head>
+
+<body>
+   <h1>TODO List</h1>
+
+   <ul id="todo-list">
+      <li>Hair Cut</li>
+      <li>Lunch with Sora</li>
+      <li>Dinner with Maria</li>
+   </ul>
+</body>
+
+<script type="text/javascript">
+   var todoList = document.getElementById('todo-list');
+   var content;
+
+   // insert a new todo to the list
+   function insertContent(str) {
+      var newContent = document.createElement('li');
+      content = newContent.textContent = str;
+      return newContent;
+   }
+
+   // update content of a list item
+   function updateContent() {
+      return todoList.appendChild(insertContent(content));
+   }
+
+   // remove the last item from the list
+   function removeContent() {
+      for (var i = 0; i < todoList.childElementCount; i++) {
+         if (i == todoList.childElementCount - 1) {
+            return todoList.children[i].remove();
+         }
+      }
+   }
+</script>
+
+</html>

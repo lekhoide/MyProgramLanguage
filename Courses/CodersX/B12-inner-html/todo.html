@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- internal script: viết ở trong html -->
+<!-- external script: viết ở ngoài html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO list</title>
+</head>
+<body>
+    <ul id='todo-list'>
+        <!-- <li>Take shower</li>
+        <li>Have a walk</li>
+        <li>Go to bed</li> -->
+    </ul>
+
+    <script type="text/javascript">
+        var todoList = [
+            'Take shower',
+            'Have a walk',
+            'Go to bed'
+        ];
+
+        var htmlList = document.getElementById('todo-list');
+
+        var content = todoList.map(function(x){
+            // Cách 1
+            return '<li>' + x + '</li>';
+
+            // Cách 2
+            // var newContent = document.createElement('li');
+            // return newContent.textContent = x;
+            // htmlList.appendChild(newContent);
+        });
+
+        // Cách 1
+        htmlList.innerHTML = content.join('');
+    </script>
+</body>
+</html>
