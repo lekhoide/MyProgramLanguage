@@ -207,6 +207,7 @@ class QuanLySinhVien{
     checkNodeNull(node){
         return node == null;
     }
+    // Check Number is Float
     checkNumberIsFloat(key){
         return Number(key) === key && key % 1 !== 0;
     }
@@ -225,11 +226,13 @@ class QuanLySinhVien{
         if(this.checkListNull()){
             console.log('List null');
         }
+        this.sortNode();
         while(!this.checkNodeNull(node)){
             console.log(`${node.ma}. ${node.ten} - ${node.dtb}`);
             node = node.next;
         }
     }
+    // Print Sinhvien has dtb > 5
     readGreaterThanFive(){
         var node = this.head;
         while(!this.checkNodeNull(node)){
@@ -276,6 +279,22 @@ class QuanLySinhVien{
             node = node.next;
         }
         this.size--;
+    }
+    // Delete node duplicated as ma
+    deleteNodeDuplicated(){
+        var nodeA = this.head;
+        while(!this.checkNodeNull(nodeA)){
+            var nodeB = nodeA.next;
+            while(!this.checkNodeNull(nodeB)){
+                if(nodeA.ma == nodeB.ma){
+                    nodeA.next = nodeB.next;
+                    // nodeB = nodeA.next;
+                    this.size--;
+                }
+                nodeB = nodeB.next;
+            }
+            nodeA = nodeA.next;
+        }
     }
 
     // Insert Node
@@ -325,11 +344,6 @@ class QuanLySinhVien{
                     if(node.dtb == key && key <= 10 && this.checkNumberIsFloat(key) == true){
                         return -1;
                     } else if(node.ma == key){
-                        //1. Node Data
-                        //2. Node next
-                        //3. Node Before
-                        //4. Node After
-                        //5. Node null
                         if(this.checkNodeNull(node.next)){
                             node.next = nodeData;
                         } else{
@@ -340,6 +354,20 @@ class QuanLySinhVien{
                 }
                 node = node.next;
             }
+        }
+        this.size++;
+    }
+    insertList(listNode){
+        this.size+=listNode.size;
+        listNode = listNode.head;
+        var lastNode = this.head;
+        if(this.checkListNull()){
+            this.head = listNode;
+        } else{
+            while(!this.checkNodeNull(lastNode.next)){
+                lastNode = lastNode.next;
+            }
+            lastNode.next = listNode;
         }
     }
     // Search Node
@@ -416,14 +444,27 @@ class QuanLySinhVien{
     }
 }
 
+console.log('Danh sách Sinh Vien Khối A')
+var danhSachSinhVienA = new QuanLySinhVien();
+danhSachSinhVienA.insertNode(9,'Bạn 9', 9); // [10]
+danhSachSinhVienA.insertNodeFirst(10, 'Bạn 10', 10); // [10,9] => [9,10]
+danhSachSinhVienA.insertNodeLast(1, 'Bạn 1', 1); // [10,9,1] => [1,9,10]
+danhSachSinhVienA.insertNodeAt(2,'Bạn 2', 2, 1); //[10,9,1,2] => [1,2,9,10]
+danhSachSinhVienA.insertNodeAt(2,'Bạn 2', 2, 1); //[10,9,1,2,2] => [1,2,2,9,10]
+danhSachSinhVienA.deleteNodeDuplicated();
+
+console.log('Danh sách Sinh Vien Khối B')
+var danhSachSinhVienB = new QuanLySinhVien();
+danhSachSinhVienB.insertNode(19,'Bạn 19', 9);
+danhSachSinhVienB.insertNodeFirst(20, 'Bạn 20', 10);
+danhSachSinhVienB.insertNodeLast(5, 'Bạn 5', 1);
+danhSachSinhVienB.insertNodeAt(4,'Bạn 4', 2, 5);
+danhSachSinhVienB.insertNodeAt(4,'Bạn 4', 2, 5);
+danhSachSinhVienB.deleteNodeDuplicated();
+
 var danhSachSinhVien = new QuanLySinhVien();
-danhSachSinhVien.insertNode(3,'Lê Khôi A',5);
-danhSachSinhVien.insertNodeLast(2,'Lê Khôi B',6);
-danhSachSinhVien.insertNodeLast(1,'Lê Khôi C',8.5);
-danhSachSinhVien.insertNodeFirst(4,'Lê Khôi Đệ',8.5);
-danhSachSinhVien.sortNode();
-danhSachSinhVien.insertNodeAt(5,'Le Khoi C',7,3);
-danhSachSinhVien.updateNode(5,6);
-danhSachSinhVien.deleteNode(5);
+danhSachSinhVien.insertList(danhSachSinhVienA);
+danhSachSinhVien.insertList(danhSachSinhVienB);
 danhSachSinhVien.readNode();
+console.log(danhSachSinhVien.sizeList());
 
