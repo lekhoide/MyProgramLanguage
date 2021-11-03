@@ -212,12 +212,23 @@ def checkChuoi(str):
 
 """
 def NegativeNumberInString(str):
-    for i in str:
-        if i.isdigit():
-            print(i)
+    arr = []
+    i = 0
+    while i < len(str):
+        newStr = ''
+        if(str[i] == '-'):
+            newStr = str[i]
+            while str[i+1].isdigit():
+                newStr += str[i+1]
+                i = i + 1
+            if(newStr != '-'):
+                arr.append(newStr)
+        i=i+1
+    return arr
 
 str_6 = "abc-5xyz-12k91--p"
-NegativeNumberInString(str_6)
+print(NegativeNumberInString(str_6))
+
 
 
 
