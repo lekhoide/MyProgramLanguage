@@ -1,5 +1,3 @@
-
-
 // ? Tìm kiếm tuyến tính: tập dữ liệu bất kỳ
 // ? Tìm kiếm nhị phân: tập dữ liệu đã được sắp xếp
 
