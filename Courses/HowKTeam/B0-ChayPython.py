@@ -1,1 +1,0 @@
-print("Chay Python thanh cong.")

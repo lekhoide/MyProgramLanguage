@@ -70,27 +70,22 @@ def CheckPrime(x):
             dem += 1
     return dem == 2
 
-# s = "5;7;8;-2;8;11;-13;9;10"
-# arr = s.split(';')
-# sochan = 0
-# soam = 0
-# sont = 0
-# sum = 0
-# for x in arr:
-#     print(x)
-#     number = int(x)
-#     if number % 2 == 0:
-#         sochan+=1
-#     if number < 0:
-#         soam+=1
-#     if CheckPrime(number):
-#         sont+=1
-#     sum+=number
-# print("Số chẵn =",sochan)
-# print("Số âm =", soam)
-# print("Số Nguyên tố = ", sont)
-# print("Trung bình =", sum/len(arr))
-
+def baiTap3(str):
+    arr = str.split(';')
+    sochan = 0
+    soam = 0
+    sont = 0
+    sum = 0
+    for x in arr:
+        print(x)
+        number = int(x)
+        if number % 2 == 0:
+            sochan+=1
+        if number < 0:
+            soam+=1
+        if CheckPrime(number):
+            sont+=1
+        sum+=number
 
 """
     Câu 4: Các hàm quan trọng trong xử lý chuỗi của Python
@@ -202,10 +197,7 @@ def checkChuoi(str):
     print("Có",kyTuDB,"ký tự đặc biệt")
     print("Có",khoangTrang,"chữ khoảng trắng")
     print("Có",nguyenAm,"nguyên âm")
-    print("Có",phuAm,"phụ âm")   
-
-# str_5 = "Lê Khôi Đệ 05 &"
-# checkChuoi(str_5)
+    print("Có",phuAm,"phụ âm")
 
 """
     Câu 6: Trích lọc số âm trong chuỗi
@@ -225,9 +217,6 @@ def NegativeNumberInString(str):
                 arr.append(newStr)
         i=i+1
     return arr
-
-str_6 = "abc-5xyz-12k91--p"
-print(NegativeNumberInString(str_6))
 
 
 
