@@ -1,11 +1,9 @@
 /**
- * Danh sách liên kết:
+ * Singly Linked List
  * - Cấp phát động lúc chạy chương trình
  * - Các phần tử nằm rải rác ở nhiều nơi trong bộ nhớ
  * - Kích thước danh sách chỉ bị giới hạn do RAM
  * - Thao tác thêm xóa đơn giản
- * 
- * Danh sách liên kết đơn:
  * - Một danh sách
  * - Mỗi phần tử gồm 2 thành phần
  * - Phần chứa dữ liệu là Data
