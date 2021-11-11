@@ -14,6 +14,7 @@
             + (\) : quotes
             + (r) : raw strings
             + (""" """)
+            + (''' ''')
         - (_) : dùng trong interactive mode, giá trị là biểu thức in cuối cùng
     5. Kiểm tra biến thuộc kiểu dữ liệu: type()
     6. Các toán tử:
