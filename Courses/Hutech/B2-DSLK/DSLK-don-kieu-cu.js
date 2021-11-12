@@ -49,7 +49,7 @@ class DanhSachSoNguyen {
         return this.head == null;
     }
 
-    // 
+    //
     createNode(soNguyen){
         var node = new Node(soNguyen);
         return node;
