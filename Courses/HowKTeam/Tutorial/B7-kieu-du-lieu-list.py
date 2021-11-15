@@ -1,17 +1,17 @@
 """
 
     1. [string, int, float]
-    2. count: đếm các dữ liệu trùng lặp có trong list
-    3. index: trả về vị trí index nằm trong list
-    4. copy: copy các giá trị trong mảng tạo thành mảng mới
-    5. clear: xóa list trả về None
-    6. append: thêm giá trị vào cuối list
-    7. extend: lấy giá trị của mảng khác thêm vào mảng muốn thêm. Thêm vào cuối
-    8. insert: thêm giá trị vào vị trí mong muốn trong list
-    9. pop: truyền vị trí index để bỏ ra khỏi list
-    10. remove: truyền giá trị để bỏ ra khỏi list
-    11. reverse: đảo ngược giá trị list
-    12. sort: sắp xếp giá trị list
+    2. list.count(x): đếm các dữ liệu trùng lặp có trong list
+    3. list.index(x[,start[,end]]): trả về vị trí index nằm trong list
+    4. list.copy(): copy các giá trị trong mảng tạo thành mảng mới
+    5. list.clear(): xóa list trả về None
+    6. list.append(x): thêm giá trị vào cuối list
+    7. list.extend(iterable): lấy giá trị của mảng khác thêm vào mảng muốn thêm. Thêm vào cuối
+    8. list.insert(i,x): thêm giá trị vào vị trí mong muốn trong list
+    9. list.pop([i]): truyền vị trí index để bỏ ra khỏi list
+    10. list.remove(x): truyền giá trị để bỏ ra khỏi list
+    11. list.reverse(): đảo ngược danh sách
+    12. list.sort(*,key=None,reverse=False): sắp xếp giá trị list
     13. map(func, iter)
         iter: nói chung của các kiểu list, tuple, dict
 
@@ -55,3 +55,4 @@ print(f'Expect = None => Result = {squares.remove(14)}')
 print(f'Expect =  => Result = {list(map(lambda n: n+1, squares))}')
 
 print(squares)
+
