@@ -1,10 +1,10 @@
 """
     1. Int
     2. Float : xấp xỉ 15 số thập phân
-    3. Decimal : 
+    3. Decimal :
     4. Fractions : phân số
     5. Complex : real + imag*j
-    6. Math : 
+    6. Math :
 
 """
 

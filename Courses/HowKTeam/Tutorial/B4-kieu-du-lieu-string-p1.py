@@ -61,7 +61,7 @@ print(f'Expect = int and string => Result = {type(epKieuInt)}+" and " {type(epKi
 %s : string
 %d : lấy số nguyên (13.444 => 13)
 %.(number)f: lấy số thực (13.444 => 13.444)
-%r : None 
+%r : None
 
 '''
 pi = 13.444444
