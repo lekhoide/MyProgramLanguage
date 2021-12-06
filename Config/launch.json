@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug use Microsoft Edge Developer Tools",
+            "request": "launch",
+            "type": "pwa-msedge",
+            "url": "http://localhost:8000",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Run Microsoft Edge Developer Tools",
+            "request": "launch",
+            "type": "vscode-edge-devtools.debug",
+            "url": "http://localhost:8000"
+        }
+    ]
+}
