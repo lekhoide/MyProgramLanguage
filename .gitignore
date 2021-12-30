@@ -50,3 +50,7 @@ tsconfig.json
 
 # Visual Studio Code
 .vscode/
+
+# Python
+*.txt
+*.mp3
