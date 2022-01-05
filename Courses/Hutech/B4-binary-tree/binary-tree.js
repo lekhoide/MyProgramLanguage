@@ -33,26 +33,6 @@ class BinaryTree {
         return 0;
     }
 
-    themNut(root, data) {
-        if(root !== null) {
-            if(data === root.key) {
-                return 0;
-            } else {
-                if(data < root.key) {
-                    this.themNut(root.pLeft, data);
-                } else {
-                    this.themNut(root.pRight, data)
-                }
-            }
-        } else {
-            root = new Node(data)
-            if(root === null) {
-                return -1;
-            }
-            return 1;
-        }
-    }
-
     insert(data) {
         let newNode = new Node(data);
         if(this.root === null) {
@@ -77,14 +57,32 @@ class BinaryTree {
             }
         }
     }
+
+    NLR() {
+        if(this.root === null){
+            return -1;
+        } else{
+            this.printNLR(this.root)
+        }
+    }
+
+    printNLR(node){
+        if(node === null){
+            return -1;
+        }
+        console.log(node.key);
+        this.printNLR(node.pLeft);
+        this.printNLR(node.pRight);
+    }
 }
 
 let cayNhiPhan = new BinaryTree();
-// cayNhiPhan.themNut(cayNhiPhan.root, 7)
-// cayNhiPhan.themNut(cayNhiPhan.root, 3)
-// cayNhiPhan.themNut(cayNhiPhan.root, 36)
-// cayNhiPhan.themNut(cayNhiPhan.root, 1)
 cayNhiPhan.insert(7)
 cayNhiPhan.insert(3)
 cayNhiPhan.insert(36)
 cayNhiPhan.insert(1)
+cayNhiPhan.insert(6)
+cayNhiPhan.insert(4)
+cayNhiPhan.insert(15)
+cayNhiPhan.insert(40)
+cayNhiPhan.NLR();
