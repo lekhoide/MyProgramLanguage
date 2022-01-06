@@ -74,6 +74,58 @@ class BinaryTree {
         this.printNLR(node.pLeft);
         this.printNLR(node.pRight);
     }
+
+    LNR() {
+        if(this.root === null) {
+            return -1;
+        } else {
+            this.printLNR(this.root)
+        }
+    }
+
+    printLNR(node) {
+        if(node === null) {
+            return -1;
+        }
+        this.printLNR(node.pLeft);
+        console.log(node.key);
+        this.printLNR(node.pRight);
+    }
+
+    LRN() {
+        if(this.root === null) {
+            return -1;
+        } else {
+            this.printLRN(this.root)
+        }
+    }
+
+    printLRN(node) {
+        if(node === null) {
+            return -1;
+        }
+        this.printLRN(node.pLeft);
+        this.printLRN(node.pRight)
+        console.log(node.key)
+    }
+
+    demNutLa() {
+        if(this.root) {
+            this.duyetDemNutLa(this.root);
+        } else {
+            return 0;
+        }
+    }
+
+    duyetDemNutLa(node) {
+        if(node){
+            if(node.pLeft === null && node.pRight === null) {
+                return 1;
+            } else {
+                return this.duyetDemNutLa(node.pLeft) + this.duyetDemNutLa(node.pRight);
+            }
+        }
+    }
 }
 
 let cayNhiPhan = new BinaryTree();
@@ -85,4 +137,6 @@ cayNhiPhan.insert(6)
 cayNhiPhan.insert(4)
 cayNhiPhan.insert(15)
 cayNhiPhan.insert(40)
-cayNhiPhan.NLR();
+// cayNhiPhan.NLR();
+// cayNhiPhan.LNR();
+// cayNhiPhan.LRN();
