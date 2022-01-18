@@ -111,19 +111,9 @@ class BinaryTree {
 
     demNutLa() {
         if(this.root) {
-            this.duyetDemNutLa(this.root);
+            if(this.root.pLeft == null && this.root.pRight == null) return 1;
         } else {
-            return 0;
-        }
-    }
-
-    duyetDemNutLa(node) {
-        if(node){
-            if(node.pLeft === null && node.pRight === null) {
-                return 1;
-            } else {
-                return this.duyetDemNutLa(node.pLeft) + this.duyetDemNutLa(node.pRight);
-            }
+            return this.demNutLa(this.root.pLeft) + this.demNutLa(this.root.pRight);
         }
     }
 }
@@ -140,3 +130,4 @@ cayNhiPhan.insert(40)
 // cayNhiPhan.NLR();
 // cayNhiPhan.LNR();
 // cayNhiPhan.LRN();
+cayNhiPhan.demNutLa()
