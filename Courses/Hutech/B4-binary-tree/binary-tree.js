@@ -109,11 +109,237 @@ class BinaryTree {
         console.log(node.key)
     }
 
-    demNutLa() {
-        if(this.root) {
-            if(this.root.pLeft == null && this.root.pRight == null) return 1;
+    /**
+     * Node lá là node có bậc = 0
+     * Kiểm tra node truyền vào undefined ==> node = this.root
+     */
+    demNutLa(node) {
+        if(node === undefined) {
+            node = this.root
+            if(node) {
+                if(node.pLeft === null && node.pRight === null) {
+                    return 1;
+                }
+                else {
+                    return this.demNutLa(node.pLeft) + this.demNutLa(node.pRight);
+                }
+            } else {
+                return 0;
+            }
         } else {
-            return this.demNutLa(this.root.pLeft) + this.demNutLa(this.root.pRight);
+            if(node) {
+                if(node.pLeft === null && node.pRight === null) {
+                    return 1;
+                }
+                else {
+                    return this.demNutLa(node.pLeft) + this.demNutLa(node.pRight);
+                }
+            } else {
+                return 0;
+            }
+        }
+    }
+
+    demNut1Con(node) {
+        if(node === undefined) {
+            node = this.root;
+
+            if(node) {
+                let d = this.demNut1Con(node.pLeft) + this.demNut1Con(node.pRight);
+                if((node.pLeft != null && node.pRight == null) || (node.pLeft==null && node.pRight != null)) {
+                    return d+1;
+                } else {
+                    return d;
+                }
+            } else {
+                return 0;
+            }
+        } else {
+            if(node) {
+                let d = this.demNut1Con(node.pLeft) + this.demNut1Con(node.pRight);
+                if((node.pLeft != null && node.pRight == null) || (node.pLeft==null && node.pRight != null)) {
+                    return d+1;
+                } else {
+                    return d;
+                }
+            } else {
+                return 0;
+            }
+        }
+    }
+
+    doCaoCay(node) {
+        if (node === undefined) {
+            node = this.root
+
+            if(node) {
+                let t1 = this.doCaoCay(node.pLeft);
+                let t2 = this.doCaoCay(node.pRight);
+                return Math.max(t1, t2) + 1;
+            } else {
+                return 0;
+            }
+        } else {
+            if(node) {
+                let t1 = this.doCaoCay(node.pLeft);
+                let t2 = this.doCaoCay(node.pRight);
+                return Math.max(t1, t2) + 1;
+            } else {
+                return 0;
+            }
+        }
+    }
+
+    inMuck(node, k=2, m=0) {
+        if(node === undefined) {
+            node = this.root
+
+            if(node) {
+                if(m == k) {
+                    console.log(node.key);
+                    return;
+                } else {
+                    m++;
+                    this.inMuck(node.pLeft,k,m)
+                    this.inMuck(node.pRight,k,m)
+                }
+            }
+        } else {
+            if(node) {
+                if(m == k) {
+                    console.log(node.key);
+                    return;
+                } else {
+                    m++;
+                    this.inMuck(node.pLeft,k,m)
+                    this.inMuck(node.pRight,k,m)
+                }
+            }
+        }
+    }
+
+    demNut1ConPhai(node) {
+        if(node === undefined) {
+            node = this.root;
+            if(node) {
+                let d = this.demNut1ConPhai(node.pLeft) + this.demNut1ConPhai(node.pRight)
+                if(node.pLeft == null && node.pRight != null) {
+                    return d+1;
+                } else {
+                    return d
+                }
+            } else {
+                return 0;
+            }
+        } else {
+            if(node) {
+                let d = this.demNut1ConPhai(node.pLeft) + this.demNut1ConPhai(node.pRight)
+                if(node.pLeft == null && node.pRight != null) {
+                    return d+1;
+                } else {
+                    return d
+                }
+            } else {
+                return 0;
+            }
+        }
+    }
+
+    timKiem(node, x=36) {
+        if(node === undefined) {
+            node = this.root;
+
+            if(node != null) {
+                if(node.key == x) {
+                    return node;
+                }
+                if(x < node.key) {
+                    return this.timKiem(node.pLeft, x)
+                } else {
+                    return this.timKiem(node.pRight, x)
+                }
+            }
+            return null;
+        } else {
+            if(node != null) {
+                if(node.key == x) {
+                    return node;
+                }
+                if(x < node.key) {
+                    return this.timKiem(node.pLeft, x)
+                } else {
+                    return this.timKiem(node.pRight, x)
+                }
+            }
+            return null;
+        }
+    }
+
+    min(){
+        let node = this. root
+        while(node.pLeft != null) {
+            node = node.pLeft
+        }
+        return node;
+    }
+
+    huyNut(node, x=1) {
+        if(node === undefined) {
+            node = this.root;
+
+            if(node != null) {
+                if(x < node.key) {
+                    this.huyNut(node.pLeft)
+                } else {
+                    if(x > node.key) {
+                        this.huyNut(node.pRight, x)
+                    } else {
+                        let newNode = node;
+                        if(node.pLeft == null) {
+                            node = node.pRight;
+                        } else {
+                            if(node.pRight == null) {
+                                node = node.pLeft
+                            } else {
+                                this.timTheMang(newNode, node.pRight);
+                            }
+                        }
+                        delete newNode.key;
+                    }
+                }
+            }
+        } else {
+            if(node != null) {
+                if(x < node.key) {
+                    this.huyNut(node.pLeft)
+                } else {
+                    if(x > node.key) {
+                        this.huyNut(node.pRight, x)
+                    } else {
+                        let newNode = node;
+                        if(node.pLeft == null) {
+                            node = node.pRight;
+                        } else {
+                            if(node.pRight == null) {
+                                node = node.pLeft
+                            } else {
+                                this.timTheMang(newNode, node.pRight);
+                            }
+                        }
+                        delete newNode.key;
+                    }
+                }
+            }
+        }
+    }
+
+    timTheMang(newNode, node) {
+        if(node.pLeft) {
+            this.timTheMang(newNode, node.pLeft);
+        } else {
+            newNode.key = node.key;
+            newNode = node;
+            node = node.pRight;
         }
     }
 }
@@ -130,4 +356,12 @@ cayNhiPhan.insert(40)
 // cayNhiPhan.NLR();
 // cayNhiPhan.LNR();
 // cayNhiPhan.LRN();
-cayNhiPhan.demNutLa()
+console.log(cayNhiPhan.demNutLa())
+console.log(cayNhiPhan.demNut1Con())
+console.log(cayNhiPhan.doCaoCay())
+cayNhiPhan.inMuck()
+console.log(cayNhiPhan.demNut1ConPhai())
+console.log(cayNhiPhan.timKiem())
+console.log(cayNhiPhan.min())
+cayNhiPhan.huyNut()
+cayNhiPhan.NLR()
