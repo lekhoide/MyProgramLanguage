@@ -78,7 +78,7 @@
     - Bắt lỗi bằng try..except
 """
 
-# Excercise: Các kiểu dữ liệu cơ bản trong Python / Kiểu complex
+# : Các kiểu dữ liệu cơ bản trong Python / Kiểu complex
 so_complex = complex(3, 2)
 print("Thực=", so_complex.real, "Ảo=",so_complex.imag)
 
