@@ -1,4 +1,4 @@
-# My Program Language: Python
+# My Program Language: PostgreSQL
 
 ##1. Folder
 
@@ -6,9 +6,3 @@
 - Projects
 
 ##2. Courses
-
-- free Code Camp
-- HowKTeam
-- GV.TranDuyThanh
-
-##3. Notes: Basic and OOP
