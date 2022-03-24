@@ -68,5 +68,61 @@ def XyLyChuoi(s):
     print("Prime number %s" % prime_number)
     print("Sum number %s" % sum_number)
 
-XyLyChuoi("5;7;8;-2;8;11;13;9;10")
+# XyLyChuoi("5;7;8;-2;8;11;13;9;10")
+
+"""
+    Câu 1: Trình bày một số hàm quan trọng trong xử lý Chuỗi của Python
+"""
+
+"""
+    Câu 2: Viết chương trình cho phép nhập vào 1 chuỗi. Yêu cầu xuất ra
+    - Bao nhiêu chữ In Hoa
+    - Bao nhiêu chữ in thường
+    - Bao nhiêu chữ là chữ số
+    - Bao nhiêu chữ là ký tự dặc biệt
+    - Bao nhiêu chữ là khoảng trắng
+    - Bao nhiêu chữ là Nguyên Âm
+    - Bao nhiêu chữ là Phụ âm
+"""
+
+"""
+    Câu 3: Đề xuât ra các số nguyên âm trong chuỗi
+    Ví dụ: nhập vào chuỗi "abc-5xyz-12k91--p" xuất ra được 2 số nguyên âm đó là -5 và -12
+"""
+
+def NegativeNumberInString(self):
+    split_str = list(self)
+    list_str = []
+    for nega in range(1,len(split_str)):
+        if split_str[nega].isnumeric() and split_str[nega-1] == "-":
+            list_str.append(split_str[nega-1]+split_str[nega])
+    return [int(number) for number in list_str]
+
+print(NegativeNumberInString("abc-5xyz-12k91--p"))
+
+
+"""
+    Câu 4: Tối ưu chuỗi: không chứa các khoảng trắng dư thừa, các từ cách nhau
+    bởi một khoảng trắng. Ký tự đầu tiên của các từ Viết Hoa
+    Vd: LÊ   khÔI   đỆ
+    Lê Khôi Đệ
+"""
+
+def OptimalInString(self):
+    """
+    1. Không chứa các khoảng trắng dư thừa
+    2. Các từ cách nhau bởi một khoảng trắng
+    3. Ký tự đầu tiên các từ Viết Hoa
+    """
+    split_str = self.split(" ")
+    list_str = []
+    for string in split_str:
+        if len(string) != 0:
+            list_str.append(string.capitalize())
+    self = ' '.join(list_str)
+    return self
+
+print(OptimalInString("LÊ   khÔI          đỆ"))
+
+
 
